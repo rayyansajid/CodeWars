@@ -1,6 +1,7 @@
 import { assert } from "chai";
 import descendingOrder from "./Descending-Order/Descending-Order-Solution.js"; // Replace with the actual path to your function
 import isIsogram from "./Isograms/isogram.js";
+import Multiple_Of_3_Or_5_solution from "./Multiples-Of-3-Or-5/Multiples-of-3-or-5-Solution.js";
 const DescendingTests = () => {
   describe("Basic tests", () => {
     // Define an individual test case
@@ -13,12 +14,10 @@ const DescendingTests = () => {
       assert.strictEqual(descendingOrder(123456789), 987654321);
     });
   });
-  describe("Random tests", () => {  
-  
+  describe("Random tests", () => {    
     function randint(min, max){
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    
     for(let i = 0; i < 100; i++){
       let num = randint(0, 10**randint(1, 10))
       let expected = +[...""+num].sort().reverse().join``
@@ -26,7 +25,7 @@ const DescendingTests = () => {
         assert.strictEqual(descendingOrder(num), expected);
       });
     }
-  })
+  });
 }
 
 const IsogramTests = () => {
@@ -88,5 +87,55 @@ const IsogramTests = () => {
   })
 }
 
+const MultiplesTest = () => {
+  function test(n, expected) {
+    it(`n=${n}`, () => {  
+      let actual = Multiple_Of_3_Or_5_solution(n);
+      assert.strictEqual(actual, expected)
+    });
+  }
+  
+  describe("basic tests", function(){
+    test(10,23)
+    test(20,78)
+    test(200,9168)
+  })
+  
+  describe("smallest cases", function() {
+    test(-1,0)
+    test(0,0)
+    test(1,0)
+    test(2,0)
+    test(3,0)
+    test(4,3)
+    test(5,3)
+    test(6,8)
+  })
+  
+  describe("random cases", function() {
+    
+    function randint(min, max){
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    function _solution(number){
+      let sum = 0;
+      
+      for(let i = 1; i< number; i++){
+        if(i % 3 == 0 || i % 5 == 0){
+          sum += i
+        }
+      }
+      return sum;
+    }
+    
+    for(let i = 0; i < 100; i++) {
+      let rand = randint(0, 10**randint(1, 5)) - 100
+      test(rand, _solution(rand));
+    }
+  })
+}
+
 // DescendingTests();
-IsogramTests();
+// IsogramTests();
+MultiplesTest();  

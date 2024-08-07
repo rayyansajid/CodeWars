@@ -41,8 +41,6 @@ npm i mocha
 npm i chai
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
-
 ## 🔧 Running the tests <a name = "tests"></a>
 
 Run the following command to run tests.
