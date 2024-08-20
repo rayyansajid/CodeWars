@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import descendingOrder from "./Descending-Order/Descending-Order-Solution.js"; // Replace with the actual path to your function
 import isIsogram from "./Isograms/isogram.js";
-import openOrSenior from "./Categorize New Member/Categorization.js";
+import openOrSenior    from "./Categorize New Member/Categorization.js";
 import Multiple_Of_3_Or_5_solution from "./Multiples-Of-3-Or-5/Multiples-of-3-or-5-Solution.js";
 const DescendingTests = () => {
   describe("Basic tests", () => {
